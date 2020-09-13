@@ -14,6 +14,9 @@ textarea{
   width: 100%;
   margin-top: 2%;
 }
+.container {
+  margin-bottom: 120px;
+}
 
 .jumbotron {
   text-align: center;
