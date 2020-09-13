@@ -3,7 +3,7 @@ $(document).ready(function () {
   var date = moment().format('MMMM Do');
   var currentDay = $("#currentDay");
   // Add Current date to header
-  currentDay.text(date)
+  currentDay.text(date);
   // Variable to see what time it is
   var dayHour24 = moment().format('H');
   var storedPlans = JSON.parse(localStorage.getItem("storedPlans"));
@@ -35,7 +35,7 @@ $(document).ready(function () {
     if (hour >= 12) {
       displayHour = hour - 12;
       ampm = "pm";
-      // Show 12pm instead of 0pm
+      // Show 12pm instead of 12am
       if (displayHour === 0) {
         displayHour = 12;
       }
@@ -84,11 +84,11 @@ $(document).ready(function () {
   function updateRowColor(hourRow, hour) {
 
     if (hour < dayHour24) {
-      hourRow.addClass("past")
+      hourRow.addClass("past");
     } else if (hour > dayHour24) {
-      hourRow.addClass("future")
+      hourRow.addClass("future");
     } else {
-      hourRow.addClass("present")
+      hourRow.addClass("present");
     }
   };
 
