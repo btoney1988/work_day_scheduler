@@ -10,24 +10,24 @@ $(document).ready(function () {
 
   // If there are no stored plans on the 4th hour it will show 'No Plans For Today'
   if (storedPlans !== null) {
-    planTextArr = storedPlans;
+    planText = storedPlans;
   } else {
     // This will only occur on first time the app is loaded in the browser to show all timeblocks
-    planTextArr = new Array(9);
-    planTextArr[4] = "No plans for today!";
+    planText = new Array(9);
+    planText[4] = "No plans for today!";
   }
 
   // For each hour between 9-5 a row will be made with time, input, and save divs 
   for (var hour = 9; hour <= 17; hour++) {
-    var planContainer = $('.container');
+    var container = $('.container');
     // Index for array use offset from hour
     var index = hour - 9;
-    var rowDiv = $("<div class='row plannerRow'>");
-    rowDiv.attr('hour-index', hour);
+    var row = $("<div class='row plannerRow'>");
+    row.attr('hour-index', hour);
 
     // Time div start
-    var timeDivCol2 = $("<div class='col-2 hour'>");
-    var timeBoxDiv = $("<div class='time-block'>");
+    var timeBlockCol = $("<div class='col-2 hour'>");
+    var timeBlock = $("<div class='time-block'>");
 
     // Format hours for displaying am and pm
     var displayHour = "";
@@ -44,40 +44,40 @@ $(document).ready(function () {
       ampm = "am";
     }
 
-    timeBoxDiv.text(displayHour + ampm);
+    timeBlock.text(displayHour + ampm);
     // Append Time div
-    rowDiv.append(timeDivCol2);
-    timeDivCol2.append(timeBoxDiv);
+    row.append(timeBlockCol);
+    timeBlockCol.append(timeBlock);
     // Time div end
 
-    // Plan div start
-    var planDiv = $("<textarea class='dailyPlan' type='text'>");
-    planDiv.attr('id', `input-${index}`);
-    planDiv.attr('hour-index', index);
+    // Plan text area start
+    var textArea = $("<textarea class='dailyPlan' type='text'>");
+    textArea.attr('id', `input-${index}`);
+    textArea.attr('hour-index', index);
 
-    planDiv.val(planTextArr[index]);
-    var inputDivCol8 = $("<div class='col-8'>");
+    textArea.val(planText[index]);
+    var inputArea = $("<div class='col-8'>");
 
     // Append input div
-    rowDiv.append(inputDivCol8);
-    inputDivCol8.append(planDiv);
-    // Plan div end
+    row.append(inputArea);
+    inputArea.append(textArea);
+    // Plan text area div end
 
     // Save div start
-    var saveDivCol2 = $("<div class='col-2 saveBtn'>");
+    var saveBtnCol = $("<div class='col-2 saveBtn'>");
     var saveBtn = $("<i class='far fa-save saveIcon'>");
     saveBtn.attr('id', `saveid-${index}`);
     saveBtn.attr('save-id', index);
     //  Append save div and button
-    rowDiv.append(saveDivCol2);
-    saveDivCol2.append(saveBtn);
+    row.append(saveBtnCol);
+    saveBtnCol.append(saveBtn);
     // Save div end
 
     // Updating row color
-    updateRowColor(rowDiv, hour);
+    updateRowColor(row, hour);
 
     // Append to container
-    planContainer.append(rowDiv);
+    container.append(row);
   };
 
   // Function to update row color based off if the time of day has past or not
@@ -101,8 +101,8 @@ $(document).ready(function () {
     var inputId = '#input-' + index;
     var value = $(inputId).val();
 
-    planTextArr[index] = value;
+    planText[index] = value;
 
-    localStorage.setItem("storedPlans", JSON.stringify(planTextArr));
+    localStorage.setItem("storedPlans", JSON.stringify(planText));
   });
 });
