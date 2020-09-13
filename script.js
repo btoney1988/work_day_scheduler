@@ -30,11 +30,15 @@ $(document).ready(function () {
     var timeBoxDiv = $("<div class='time-block'>");
 
     // Format hours for displaying am and pm
-    var displayHour = 0;
+    var displayHour = "";
     var ampm = "";
-    if (hour > 12) {
+    if (hour >= 12) {
       displayHour = hour - 12;
       ampm = "pm";
+      // Show 12pm instead of 0pm
+      if (displayHour === 0) {
+        displayHour = 12;
+      }
     } else {
       displayHour = hour;
       ampm = "am";
@@ -78,7 +82,7 @@ $(document).ready(function () {
 
   // Function to update row color based off if the time of day has past or not
   function updateRowColor(hourRow, hour) {
-  
+
     if (hour < dayHour24) {
       hourRow.addClass("past")
     } else if (hour > dayHour24) {
