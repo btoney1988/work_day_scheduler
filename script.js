@@ -14,7 +14,6 @@ $(document).ready(function () {
   } else {
     // This will only occur on first time the app is loaded in the browser to show all timeblocks
     planText = new Array(9);
-    planText[4] = "No plans for today!";
   }
 
   // For each hour between 9-5 a row will be made with time, input, and save divs 
