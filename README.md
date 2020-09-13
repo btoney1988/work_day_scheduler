@@ -1,31 +1,9 @@
-# work_day_scheduler# 05 Third-Party APIs: Work Day Scheduler
+# work_day_scheduler
 
-Create a simple calendar application that allows the user to save events for each hour of the day. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
+# Work Day Scheduler
+ - This is a simple workday scheduler. When loading into the site for the first time there will be a notice in the middle of the day showing there are no plans. When scheduling the day and hitting the save button. Plans for the day are saved to local storage and will load next time the user opens the site. Depending on the time the schedule will show grey color for previous timeblock, red for the current timeblock, and green for the future timeblock.
+ - This page works on HTML, CSS, and JQuery.
 
-You'll need to use the [Moment.js](https://momentjs.com/) library to work with date and time. Be sure to read the documentation carefully and concentrate on using Moment.js in the browser.
-
-## User Story
-
-```
-AS AN employee with a busy schedule
-I WANT to add important events to a daily planner
-SO THAT I can manage my time effectively
-```
-
-## Acceptance Criteria
-
-```
-GIVEN I am using a daily planner to create a schedule
-WHEN I open the planner
-THEN the current day is displayed at the top of the calendar
-WHEN I scroll down
-THEN I am presented with timeblocks for standard business hours
-WHEN I view the timeblocks for that day
-THEN each timeblock is color coded to indicate whether it is in the past, present, or future
-WHEN I click into a timeblock
-THEN I can enter an event
-WHEN I click the save button for that timeblock
-THEN the text for that event is saved in local storage
-WHEN I refresh the page
-THEN the saved events persist
-```
+# Screenshots
+ - Work day scheduler first opened
+ ![image](https://user-images.githubusercontent.com/68873509/93024242-f3257400-f5c2-11ea-9c7f-5ce6d5497c29.png)
