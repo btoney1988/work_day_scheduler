@@ -12,7 +12,7 @@ $(document).ready(function () {
   if (storedPlans !== null) {
     planTextArr = storedPlans;
   } else {
-    // This should only occur on first time the app is loaded in the browser
+    // This will only occur on first time the app is loaded in the browser to show all timeblocks
     planTextArr = new Array(9);
     planTextArr[4] = "No plans for today!";
   }
@@ -64,13 +64,13 @@ $(document).ready(function () {
     // Plan div end
 
     // Save div start
-    var saveDivCol1 = $("<div class='col-2 saveBtn'>");
+    var saveDivCol2 = $("<div class='col-2 saveBtn'>");
     var saveBtn = $("<i class='far fa-save saveIcon'>");
     saveBtn.attr('id', `saveid-${index}`);
     saveBtn.attr('save-id', index);
     //  Append save div and button
-    rowDiv.append(saveDivCol1);
-    saveDivCol1.append(saveBtn);
+    rowDiv.append(saveDivCol2);
+    saveDivCol2.append(saveBtn);
     // Save div end
 
     // Updating row color
@@ -78,11 +78,11 @@ $(document).ready(function () {
 
     // Append to container
     planContainer.append(rowDiv);
-  }
+  };
 
   // Function to update row color based off if the time of day has past or not
   function updateRowColor(hourRow, hour) {
-
+    // Class style pulled from 'style.css'
     if (hour < dayHour24) {
       hourRow.addClass("past");
     } else if (hour > dayHour24) {
@@ -105,5 +105,4 @@ $(document).ready(function () {
 
     localStorage.setItem("storedPlans", JSON.stringify(planTextArr));
   });
-
-})
+});
