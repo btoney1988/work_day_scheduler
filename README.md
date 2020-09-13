@@ -14,4 +14,4 @@
 
 # Screenshots
  - Work day scheduler first opened
- ![image](https://user-images.githubusercontent.com/68873509/93024242-f3257400-f5c2-11ea-9c7f-5ce6d5497c29.png)
+![image](https://user-images.githubusercontent.com/68873509/93029578-f2540880-f5e9-11ea-96ed-6d26a37f6bfc.png)
